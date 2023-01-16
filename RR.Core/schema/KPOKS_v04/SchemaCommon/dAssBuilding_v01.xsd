@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dAb1="urn://x-artefacts-rosreestr-ru/commons/directories/ass-building/1.0.1" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/directories/ass-building/1.0.1" elementFormDefault="qualified">
+	<xs:simpleType name="dAssBuilding">
+		<xs:annotation>
+			<xs:documentation>Назначение зданий</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="204001000000">
+				<xs:annotation>
+					<xs:documentation>Нежилое здание</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="204002000000">
+				<xs:annotation>
+					<xs:documentation>Жилой дом</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="204003000000">
+				<xs:annotation>
+					<xs:documentation>Многоквартирный дом</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

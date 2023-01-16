@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dTp1="urn://x-artefacts-rosreestr-ru/commons/directories/type-parameter/1.0.1" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/directories/type-parameter/1.0.1" elementFormDefault="qualified">
+	<xs:simpleType name="dTypeParameter">
+		<xs:annotation>
+			<xs:documentation>Тип основного параметра</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:documentation>Протяженность</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:documentation>Глубина</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:documentation>Объем</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="04">
+				<xs:annotation>
+					<xs:documentation>Высота</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="05">
+				<xs:annotation>
+					<xs:documentation>Площадь</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="06">
+				<xs:annotation>
+					<xs:documentation>Площадь застройки</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+<xs:enumeration value="07">
+				<xs:annotation>
+					<xs:documentation>Глубина залегания</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>		
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

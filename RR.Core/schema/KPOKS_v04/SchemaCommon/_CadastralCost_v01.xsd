@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:Simple1="urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0" xmlns:Cos1="urn://x-artefacts-rosreestr-ru/commons/complex-types/cadastral-cost/1.0" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/cadastral-cost/1.0" elementFormDefault="qualified">
+	<!--Общие простые типы данных-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0" schemaLocation="P_CommonSimpleType_v01.xsd"/>
+	<!--Повторно используемая подсхема "Кадастровая стоимость"-->
+	<xs:complexType name="tCadastralCost">
+		<xs:annotation>
+			<xs:documentation>Кадастровая стоимость</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Value" type="Simple1:d20_2" use="required">
+			<xs:annotation>
+				<xs:documentation>Значение</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Unit" type="xs:string" use="required" fixed="383">
+			<xs:annotation>
+				<xs:documentation>Единица измерений-рубль</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tCadastralCostExt">
+		<xs:annotation>
+			<xs:documentation>Кадастровая стоимость, реквизиты акта и даты</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Cos1:tCadastralCost">
+				<xs:sequence>
+					<xs:element name="DateValuation" type="xs:date" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Дата определения кадастровой стоимости</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DateEntering" type="xs:date" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Дата внесения сведений о кадастровой стоимости в ГКН</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DateApproval" type="xs:date" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Дата вступления в законную силу акта (дата утверждения кадастровой стоимости)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DocNumber" type="Simple1:s45" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Номер акта об утверждении кадастровой стоимости </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DocDate" type="xs:date" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Дата акта об утверждении кадастровой стоимости </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

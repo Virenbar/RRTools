@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:Param2="urn://x-artefacts-rosreestr-ru/commons/complex-types/parameters-oks/2.0.1" xmlns:Simple2="urn://x-artefacts-rosreestr-ru/commons/simple-types/2.0.1" xmlns:dWa1="urn://x-artefacts-rosreestr-ru/commons/directories/wall/1.0.1" xmlns:dTp1="urn://x-artefacts-rosreestr-ru/commons/directories/type-parameter/1.0.1" xmlns:Simple1="urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0" xmlns:Simple4="urn://x-artefacts-rosreestr-ru/commons/simple-types/4.1.1" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/parameters-oks/2.0.1" elementFormDefault="qualified">
+	<!--Все простые типы данных-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/simple-types/2.0.1" schemaLocation="P_CommonSimpleType_v02.xsd"/>
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0" schemaLocation="P_CommonSimpleType_v01.xsd"/>
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/simple-types/4.1.1" schemaLocation="P_CommonSimpleType_v04.xsd"/>
+	<!--Перечень наименований материалов наружных стен здания, применяемый при ведении Единого государственного реестра объектов капитального строительства-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/wall/1.0.1" schemaLocation="dWall_v01.xsd"/>
+	<!--Справочник типов основных параметров-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/type-parameter/1.0.1" schemaLocation="dTypeParameter_v01.xsd"/>
+	<!--Подсхема ХАРАКТЕРИСТИКИ ОБЪЕКТОВ КАПИТАЛЬНОГО СТРОИТЕЛЬСТВА-->
+	<xs:complexType name="tElementsConstruct">
+		<xs:annotation>
+			<xs:documentation>Конструктивные элементы</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Material" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Материал стен </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="Wall" type="dWa1:dWall" use="required">
+						<xs:annotation>
+							<xs:documentation>Стены</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tExploitationChar">
+		<xs:annotation>
+			<xs:documentation>Эксплуатационные характеристики</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="YearBuilt" type="Simple1:i4" use="optional">
+			<xs:annotation>
+				<xs:documentation>Год завершения строительства</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="YearUsed" type="Simple1:i4" use="optional">
+			<xs:annotation>
+				<xs:documentation>Год ввода в эксплуатацию</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tFloors">
+		<xs:annotation>
+			<xs:documentation>Количество этажей</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Floors" type="Simple4:sNe200" use="required">
+			<xs:annotation>
+				<xs:documentation>Количество этажей</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="UndergroundFloors" type="Simple1:s200">
+			<xs:annotation>
+				<xs:documentation>В том числе подземных этажей</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tKeyParameters">
+		<xs:annotation>
+			<xs:documentation>Основные характеристики</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="KeyParameter" type="Param2:tKeyParameter" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Основная характеристика</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tKeyParameter">
+		<xs:annotation>
+			<xs:documentation>Основная характеристика</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Type" type="dTp1:dTypeParameter" use="required">
+			<xs:annotation>
+				<xs:documentation>Тип характеристики</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Value" type="Simple2:d23_1" use="required">
+			<xs:annotation>
+				<xs:documentation>Значение (величина в метрах (кв. метрах для площади, куб. метрах для объема))</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!--Основная характеристика части сооружения, части объекта незавершенного строительства (протяженность, площадь)-->
+	<xs:complexType name="tKeyParametersSubObject">
+		<xs:annotation>
+			<xs:documentation>Основные характеристики части</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="KeyParameterSubObject" type="Param2:tKeyParameterSubObject" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Основная характеристика части (протяженность, площадь)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tKeyParameterSubObject">
+		<xs:annotation>
+			<xs:documentation>Основная характеристика части (протяженность, площадь)</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Type" use="required">
+			<xs:annotation>
+				<xs:documentation>Тип характеристики (протяженность, площадь)</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="dTp1:dTypeParameter">
+					<xs:pattern value="01"/>
+					<xs:pattern value="05"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="Value" type="Simple2:d23_1" use="required">
+			<xs:annotation>
+				<xs:documentation>Значение (величина в метрах для протяженности, кв. метрах для площади)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

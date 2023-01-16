@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dCult1="urn://x-artefacts-rosreestr-ru/commons/directories/cultural/1.0.1" xmlns:Cult2="urn://x-artefacts-rosreestr-ru/commons/complex-types/cultural-heritage/2.0.1" xmlns:Simple4="urn://x-artefacts-rosreestr-ru/commons/simple-types/4.1.1" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/cultural-heritage/2.0.1" elementFormDefault="qualified">
+	<!--Все простые типы данных-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/simple-types/4.1.1" schemaLocation="P_CommonSimpleType_v04.xsd"/>
+	<!--Справочник "Вид объекта в едином государственном реестре объектов культурного наследия"-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/cultural/1.0.1" schemaLocation="dCultural_v01.xsd"/>
+	<!--======================================================================-->
+	<!--Подсхема "ОБЪЕКТЫ КУЛЬТУРНОГО НАСЛЕДИЯ"-->
+	<xs:complexType name="tAssignmentEGROKN">
+		<xs:annotation>
+			<xs:documentation>Сведения об отнесении объекта недвижимости к выявленным объектам культурного наследия, подлежащим государственной охране до принятия решения о включении его в ЕГРОКН</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RegNum" type="Simple4:sNe40">
+				<xs:annotation>
+					<xs:documentation>Регистрационный номер учётной карты</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ObjCultural" type="dCult1:dCultural">
+				<xs:annotation>
+					<xs:documentation>Вид объекта</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NameCultural" type="Simple4:sNe255">
+				<xs:annotation>
+					<xs:documentation>Наименование</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tInclusionEGROKN">
+		<xs:annotation>
+			<xs:documentation>Сведения о включении объекта недвижимости в ЕГРОКН</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RegNum" type="Simple4:sNe40">
+				<xs:annotation>
+					<xs:documentation>Регистрационный номер</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ObjCultural" type="dCult1:dCultural">
+				<xs:annotation>
+					<xs:documentation>Вид объекта</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NameCultural" type="Simple4:sNe255">
+				<xs:annotation>
+					<xs:documentation>Наименование</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

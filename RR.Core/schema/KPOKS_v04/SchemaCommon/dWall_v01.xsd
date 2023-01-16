@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dWa1="urn://x-artefacts-rosreestr-ru/commons/directories/wall/1.0.1" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/directories/wall/1.0.1" elementFormDefault="qualified">
+	<xs:simpleType name="dWall">
+		<xs:annotation>
+			<xs:documentation>Перечень наименований материалов наружных стен здания, применяемый при ведении Единого государственного реестра объектов капитального строительства</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="061001000000">
+				<xs:annotation>
+					<xs:documentation>Стены</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001001000">
+				<xs:annotation>
+					<xs:documentation>Каменные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001001001">
+				<xs:annotation>
+					<xs:documentation>Кирпичные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001001002">
+				<xs:annotation>
+					<xs:documentation>Кирпичные облегченные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001001003">
+				<xs:annotation>
+					<xs:documentation>Из природного камня</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001002000">
+				<xs:annotation>
+					<xs:documentation>Деревянные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001002001">
+				<xs:annotation>
+					<xs:documentation>Рубленые</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001002002">
+				<xs:annotation>
+					<xs:documentation>Каркасно-засыпные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001002003">
+				<xs:annotation>
+					<xs:documentation>Каркасно-обшивные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001002004">
+				<xs:annotation>
+					<xs:documentation>Сборно-щитовые</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001002005">
+				<xs:annotation>
+					<xs:documentation>Дощатые</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001002006">
+				<xs:annotation>
+					<xs:documentation>Деревянный каркас без обшивки</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001003000">
+				<xs:annotation>
+					<xs:documentation>Смешанные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001003001">
+				<xs:annotation>
+					<xs:documentation>Каменные и деревянные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001003002">
+				<xs:annotation>
+					<xs:documentation>Каменные и бетонные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001004000">
+				<xs:annotation>
+					<xs:documentation>Легкие из местных материалов</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001005000">
+				<xs:annotation>
+					<xs:documentation>Из прочих материалов</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001006000">
+				<xs:annotation>
+					<xs:documentation>Бетонные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001006001">
+				<xs:annotation>
+					<xs:documentation>Монолитные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001006002">
+				<xs:annotation>
+					<xs:documentation>Из мелких бетонных блоков</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001006003">
+				<xs:annotation>
+					<xs:documentation>Из легкобетонных панелей</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001007000">
+				<xs:annotation>
+					<xs:documentation>Железобетонные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001007001">
+				<xs:annotation>
+					<xs:documentation>Крупнопанельные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001007002">
+				<xs:annotation>
+					<xs:documentation>Каркасно-панельные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001007003">
+				<xs:annotation>
+					<xs:documentation>Монолитные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001007004">
+				<xs:annotation>
+					<xs:documentation>Крупноблочные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001007005">
+				<xs:annotation>
+					<xs:documentation>Из унифицированных железобетонных элементов</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001007006">
+				<xs:annotation>
+					<xs:documentation>Из железобетонных сегментов</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001008000">
+				<xs:annotation>
+					<xs:documentation>Шлакобетонные</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="061001009000">
+				<xs:annotation>
+					<xs:documentation>Металлические</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

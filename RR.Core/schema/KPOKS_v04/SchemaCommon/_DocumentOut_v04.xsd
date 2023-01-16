@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:DocOut4="urn://x-artefacts-rosreestr-ru/commons/complex-types/document-output/4.0.1" xmlns:Simple1="urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0" xmlns:dAlOut3="urn://x-artefacts-rosreestr-ru/commons/directories/all-documents-out/3.0.2" xmlns:Simple2="urn://x-artefacts-rosreestr-ru/commons/simple-types/2.0.1" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/document-output/4.0.1" elementFormDefault="qualified">
+	<!--Простые типы данных-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0" schemaLocation="P_CommonSimpleType_v01.xsd"/>
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/simple-types/2.0.1" schemaLocation="P_CommonSimpleType_v02.xsd"/>
+	<!--Справочник Все документы-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/all-documents-out/3.0.2" schemaLocation="dAllDocumentsOut_v03.xsd"/>
+	<!--Подсхема "Документ"-->
+	<xs:complexType name="tDocumentWithoutAppliedFile">
+		<xs:annotation>
+			<xs:documentation>Реквизиты документа</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CodeDocument" type="dAlOut3:dAllDocuments">
+				<xs:annotation>
+					<xs:documentation>Код документа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="Simple1:s500" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Наименование документа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Series" type="Simple1:s45" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Серия документа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Number" type="Simple1:s45" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Номер документа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Date" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Дата выдачи (подписания) документа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IssueOrgan" type="Simple1:s500" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Организация, выдавшая документ. Автор документа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Desc" type="Simple1:s1000" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Особые отметки</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

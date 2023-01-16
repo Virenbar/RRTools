@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:Cer1="urn://x-artefacts-rosreestr-ru/commons/complex-types/certification-doc/1.0" xmlns:Simple1="urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0" xmlns:tns="urn://x-artefacts-smev-gov-ru/supplementary/commons/1.0.1" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/certification-doc/1.0" elementFormDefault="qualified">
+	<!--Общие составные типы данных-->
+	<xs:import namespace="urn://x-artefacts-smev-gov-ru/supplementary/commons/1.0.1" schemaLocation="../SchemaCommonSMEV/smev-supplementary-commons-1.0.1.xsd"/>
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0" schemaLocation="P_CommonSimpleType_v01.xsd"/>
+	<!--Повторно используемая подсхема "Сведения об удостоверении документа"-->
+	<xs:complexType name="tCertificationDoc">
+		<xs:annotation>
+			<xs:documentation>Сведения об удостоверении документа</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Organization" type="Simple1:s500">
+				<xs:annotation>
+					<xs:documentation>Наименование органа кадастрового учета</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Date" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Дата</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Number" type="Simple1:s100">
+				<xs:annotation>
+					<xs:documentation>Номер документа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Official" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Должностное лицо</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Appointment" type="Simple1:s1_255">
+							<xs:annotation>
+								<xs:documentation>Должность удостоверяющего</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:group ref="tns:PhysicalPersonQualifiedName-ModelGroup"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

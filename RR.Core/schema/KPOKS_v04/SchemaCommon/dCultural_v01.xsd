@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dCult1="urn://x-artefacts-rosreestr-ru/commons/directories/cultural/1.0.1" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/directories/cultural/1.0.1" elementFormDefault="qualified">
+	<xs:simpleType name="dCultural">
+		<xs:annotation>
+			<xs:documentation>Вид объекта культурного наследия</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="207001000000">
+				<xs:annotation>
+					<xs:documentation>Памятник</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="207002000000">
+				<xs:annotation>
+					<xs:documentation>Ансамбль</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="207003000000">
+				<xs:annotation>
+					<xs:documentation>Достопримечательное место</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="207004000000">
+				<xs:annotation>
+					<xs:documentation>Объект археологического наследия</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

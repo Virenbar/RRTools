@@ -1,0 +1,1464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn://x-artefacts-rosreestr-ru/outgoing/kpoks/4.0.1" xmlns:Simple1="urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0" xmlns:tns="urn://x-artefacts-smev-gov-ru/supplementary/commons/1.0.1" xmlns:Simple2="urn://x-artefacts-rosreestr-ru/commons/simple-types/2.0.1" xmlns:Cer1="urn://x-artefacts-rosreestr-ru/commons/complex-types/certification-doc/1.0" xmlns:adrOut4="urn://x-artefacts-rosreestr-ru/commons/complex-types/address-output/4.0.1" xmlns:Num1="urn://x-artefacts-rosreestr-ru/commons/complex-types/numbers/1.0" xmlns:Cos1="urn://x-artefacts-rosreestr-ru/commons/complex-types/cadastral-cost/1.0" xmlns:Param2="urn://x-artefacts-rosreestr-ru/commons/complex-types/parameters-oks/2.0.1" xmlns:Spa5="urn://x-artefacts-rosreestr-ru/commons/complex-types/entity-spatial/5.0.1" xmlns:Cult2="urn://x-artefacts-rosreestr-ru/commons/complex-types/cultural-heritage/2.0.1" xmlns:DocOut4="urn://x-artefacts-rosreestr-ru/commons/complex-types/document-output/4.0.1" xmlns:Afl1="urn://x-artefacts-rosreestr-ru/commons/complex-types/assignation-flat/1.0.1" xmlns:dAb1="urn://x-artefacts-rosreestr-ru/commons/directories/ass-building/1.0.1" xmlns:dTs1="urn://x-artefacts-rosreestr-ru/commons/directories/type-storey/1.0.1" xmlns:dStat1="urn://x-artefacts-rosreestr-ru/commons/directories/states/1.0.1" xmlns:dRi2="urn://x-artefacts-rosreestr-ru/commons/directories/rights/2.0.1" xmlns:dAl1="urn://x-artefacts-rosreestr-ru/commons/directories/all-documents/1.0.1" xmlns:dRe3="urn://x-artefacts-rosreestr-ru/commons/directories/realty/3.0.1" xmlns:dAf1="urn://x-artefacts-rosreestr-ru/commons/directories/ass-flat/1.0.1" xmlns:dAft1="urn://x-artefacts-rosreestr-ru/commons/directories/ass-flat-type/1.0.1" xmlns:dEn3="urn://x-artefacts-rosreestr-ru/commons/directories/encumbrances/3.0.1" targetNamespace="urn://x-artefacts-rosreestr-ru/outgoing/kpoks/4.0.1" elementFormDefault="qualified">
+	<!--Все простые типы данных-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0" schemaLocation="../SchemaCommon/P_CommonSimpleType_v01.xsd"/>
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/simple-types/2.0.1" schemaLocation="../SchemaCommon/P_CommonSimpleType_v02.xsd"/>
+	<xs:import namespace="urn://x-artefacts-smev-gov-ru/supplementary/commons/1.0.1" schemaLocation="../SchemaCommonSMEV/smev-supplementary-commons-1.0.1.xsd"/>
+	<!--ПОДСХЕМЫ:-->
+	<!--Сведения об удостоверении документа-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/certification-doc/1.0" schemaLocation="../SchemaCommon/_CertificationDoc_v01.xsd"/>
+	<!--Структурированный адрес-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/address-output/4.0.1" schemaLocation="../SchemaCommon/_AddressOut_v04.xsd"/>
+	<!--Ранее присвоенные номера-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/numbers/1.0" schemaLocation="../SchemaCommon/_Numbers_v01.xsd"/>
+	<!--Кадастровая стоимость-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/cadastral-cost/1.0" schemaLocation="../SchemaCommon/_CadastralCost_v01.xsd"/>
+	<!--Характеристики объектов капитального строительства-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/parameters-oks/2.0.1" schemaLocation="../SchemaCommon/_ParametersOKS_v02.xsd"/>
+	<!--Описание местоположения границ-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/entity-spatial/5.0.1" schemaLocation="../SchemaCommon/_Spatial_v05.xsd"/>
+	<!--Объекты культурного наследия-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/cultural-heritage/2.0.1" schemaLocation="../SchemaCommon/_CulturalHeritage_v02.xsd"/>
+	<!--Документ-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/document-output/4.0.1" schemaLocation="../SchemaCommon/_DocumentOut_v04.xsd"/>
+	<!--Назначение и вид помещения-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/assignation-flat/1.0.1" schemaLocation="../SchemaCommon/_AssignationFlat_v01.xsd"/>
+	<!--КЛАССИФИКАТОРЫ И СПРАВОЧНИКИ:-->
+	<!--Классификатор назначений зданий-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/ass-building/1.0.1" schemaLocation="../SchemaCommon/dAssBuilding_v01.xsd"/>
+	<!--Справочник типов этажей-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/type-storey/1.0.1" schemaLocation="../SchemaCommon/dTypeStorey_v01.xsd"/>
+	<!--Статус объекта недвижимости-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/states/1.0.1" schemaLocation="../SchemaCommon/dStates_v01.xsd"/>
+	<!--Права-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/rights/2.0.1" schemaLocation="../SchemaCommon/dRights_v02.xsd"/>
+	<!--Виды объектов государственного кадастра недвижимости (ГКН) и Единого государственного реестра прав на недвижимое имущество и сделок с ним (ЕГРП)-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/realty/3.0.1" schemaLocation="../SchemaCommon/dRealty_v03.xsd"/>
+	<!--Ограничения (обременения) прав-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/encumbrances/3.0.1" schemaLocation="../SchemaCommon/dEncumbrances_v03.xsd"/>
+	<!--============================ ВЕРСИЯ 4 ==========================================-->
+	<xs:element name="KPOKS">
+		<xs:annotation>
+			<xs:documentation>Кадастровый паспорт здания, сооружения, объекта незавершенного строительства, помещения</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Realty" type="tRealty">
+					<xs:annotation>
+						<xs:documentation>Объект недвижимости</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CertificationDoc" type="Cer1:tCertificationDoc">
+					<xs:annotation>
+						<xs:documentation>Сведения об удостоверении документа</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Contractors" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Сведения о кадастровых инженерах</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Contractor" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Сведения о кадастровом инженере и дате проведения кадастровых работ</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="tEngineerOut">
+											<xs:attribute name="Date" type="xs:date">
+												<xs:annotation>
+													<xs:documentation>Дата проведения кадастровых работ</xs:documentation>
+												</xs:annotation>
+											</xs:attribute>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CoordSystems" type="Spa5:tCoordSystems" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Перечень систем координат</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="tRealty">
+		<xs:annotation>
+			<xs:documentation>Объект недвижимости (здание, сооружение, объект незавершенного строительства, помещение)</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="Building" type="tBuilding">
+				<xs:annotation>
+					<xs:documentation>Здание</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Construction">
+				<xs:annotation>
+					<xs:documentation>Сооружение</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="tConstruction">
+							<xs:sequence>
+								<xs:element name="ConditionalPartsLinear" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Условные части линейного сооружения</xs:documentation>
+									</xs:annotation>
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="ConditionalPartLinear" type="tConditionalPartLinear" maxOccurs="unbounded">
+												<xs:annotation>
+													<xs:documentation>Условная часть линейного сооружения</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Uncompleted" type="tUncompleted">
+				<xs:annotation>
+					<xs:documentation>Объект незавершенного строительства</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Flat" type="tFlat">
+				<xs:annotation>
+					<xs:documentation>Помещение</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="tBuilding">
+		<xs:annotation>
+			<xs:documentation>Здание</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CadastralBlocks" type="tCadastralBlocksOut">
+				<xs:annotation>
+					<xs:documentation>Номер (номера) кадастрового квартала (кадастровых кварталов), в пределах которого (которых) расположен данный объект недвижимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ObjectType">
+				<xs:annotation>
+					<xs:documentation>Вид объекта недвижимости - Здание</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="dRe3:dRealty">
+						<xs:pattern value="002001002000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParentCadastralNumbers" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер земельного участка (земельных участков), в пределах которого (которых) расположен данный объект недвижимости (сведения ГКН)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ParentParcels" type="tParentParcels" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о земельном участке (земельных участках), в пределах которого (которых) расположен данный объект недвижимости (на основе пространственного анализа для формирования КВ.2)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrevCadastralNumbers" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер объекта (объектов) недвижимости, из которого (которых) был образован данный объект недвижимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OldNumbers" type="Num1:tOldNumbers" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ранее присвоенные государственные учетные номера</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="Simple1:s1000" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Наименование</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssignationBuilding" type="dAb1:dAssBuilding">
+				<xs:annotation>
+					<xs:documentation>Назначение здания</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ElementsConstruct" type="Param2:tElementsConstruct" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Конструктивные элементы (Материал наружных стен)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExploitationChar" type="Param2:tExploitationChar" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Эксплуатационные характеристики</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Floors" type="Param2:tFloors" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Количество этажей (в том числе подземных)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Area" type="Simple2:d21_1">
+				<xs:annotation>
+					<xs:documentation>Площадь в квадратных метрах</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="adrOut4:tAddressOut">
+				<xs:annotation>
+					<xs:documentation>Адрес (описание местоположения)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CadastralCost" type="Cos1:tCadastralCost" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о величине кадастровой стоимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Rights" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о правах</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Right" type="tRight" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Право</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Encumbrances" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения об ограничениях (обременениях) прав</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Encumbrance" type="tEncumbranceOKS" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Ограничение (обременение) права</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SubBuildings" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о частях здания</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SubBuilding" type="tSubBuilding" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Сведения о части здания</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="EntitySpatial" type="Spa5:tEntitySpatialOKSOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Описание местоположения границ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Plans" type="tPlans" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Планы</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Notes" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Особые отметки</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CadastralNumbersFlats" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера помещений, расположенных в объекте недвижимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="CulturalHeritage" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Объект культурного наследия</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AllNewObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, одновременно образованных с данным объектом недвижимости (строка 16.1)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OffspringObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, образованных из данного объекта недвижимости (строка 16.2)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RemoveObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, подлежащих снятию с кадастрового учета (строка 16.3)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CadastralNumber" type="Simple1:s40" use="required">
+			<xs:annotation>
+				<xs:documentation>Кадастровый номер</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="State" type="dStat1:dStates">
+			<xs:annotation>
+				<xs:documentation>Статус записи об ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateExpiry" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата истечения временного характера сведений об ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateCreated" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата постановки на учет (дата внесения номера в ГКН)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateRemoved" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата снятия с государственного кадастрового учета</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tConstruction">
+		<xs:annotation>
+			<xs:documentation>Сооружение (Линейное сооружение, расположенное более чем в одном кадастровом округе)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CadastralBlocks" type="tCadastralBlocksOut">
+				<xs:annotation>
+					<xs:documentation>Номер (номера) кадастрового квартала (кадастровых кварталов), в пределах которого (которых) расположен данный объект недвижимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ObjectType">
+				<xs:annotation>
+					<xs:documentation>Вид объекта недвижимости - Сооружение (Линейное сооружение, расположенное более чем в одном кадастровом округе)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="dRe3:dRealty">
+						<xs:pattern value="002001004000"/>
+						<xs:pattern value="002001004001"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParentCadastralNumbers" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер земельного участка (земельных участков), в пределах которого (которых) расположен данный объект недвижимости (сведения ГКН)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ParentParcels" type="tParentParcels" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о земельном участке (земельных участках), в пределах которого (которых) расположен данный объект недвижимости (на основе пространственного анализа для формирования КВ.2)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrevCadastralNumbers" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер объекта (объектов) недвижимости, из которого (которых) был образован данный объект недвижимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OldNumbers" type="Num1:tOldNumbers" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ранее присвоенные государственные учетные номера</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="Simple1:s1000" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Наименование</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssignationName" type="Simple1:s250">
+				<xs:annotation>
+					<xs:documentation>Назначение сооружения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExploitationChar" type="Param2:tExploitationChar" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Эксплуатационные характеристики</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Floors" type="Param2:tFloors" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Количество этажей (в том числе подземных)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="KeyParameters" type="Param2:tKeyParameters" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Основные характеристики</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="adrOut4:tAddressOut">
+				<xs:annotation>
+					<xs:documentation>Адрес (описание местоположения)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CadastralCost" type="Cos1:tCadastralCost" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о величине кадастровой стоимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Rights" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о правах</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Right" type="tRight" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Право</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Encumbrances" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения об ограничениях (обременениях) прав</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Encumbrance" type="tEncumbranceOKS" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Ограничение (обременение) права</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SubConstructions" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о частях сооружения</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SubConstruction" type="tSubObject" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Сведения о части сооружения</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="EntitySpatial" type="Spa5:tEntitySpatialOKSOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Описание местоположения границ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Plans" type="tPlans" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Планы</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Notes" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Особые отметки</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CadastralNumbersFlats" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера помещений, расположенных в объекте недвижимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="CulturalHeritage" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Объект культурного наследия</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AllNewObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, одновременно образованных с данным объектом недвижимости (строка 16.1)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OffspringObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, образованных из данного объекта недвижимости (строка 16.2)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RemoveObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, подлежащих снятию с кадастрового учета (строка 16.3)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CadastralNumber" type="Simple1:s40" use="required">
+			<xs:annotation>
+				<xs:documentation>Кадастровый номер</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="State" type="dStat1:dStates">
+			<xs:annotation>
+				<xs:documentation>Статус записи об ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateExpiry" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата истечения временного характера сведений об ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateCreated" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата постановки на учет (дата внесения номера в ГКН)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateRemoved" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата снятия с государственного кадастрового учета (Дата аннулирования сведений в ГКН)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tUncompleted">
+		<xs:annotation>
+			<xs:documentation>Объект незавершенного строительства</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CadastralBlocks" type="tCadastralBlocksOut">
+				<xs:annotation>
+					<xs:documentation>Номер (номера) кадастрового квартала (кадастровых кварталов), в пределах которого (которых) расположен данный объект недвижимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ObjectType">
+				<xs:annotation>
+					<xs:documentation>Вид объекта недвижимости - Объект незавершенного строительства</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="dRe3:dRealty">
+						<xs:pattern value="002001005000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParentCadastralNumbers" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер земельного участка (земельных участков), в пределах которого (которых) расположен данный объект недвижимости (сведения ГКН)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ParentParcels" type="tParentParcels" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о земельном участке (земельных участках), в пределах которого (которых) расположен данный объект недвижимости (на основе пространственного анализа для формирования КВ.2)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrevCadastralNumbers" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер объекта (объектов) недвижимости, из которого (которых) был образован данный объект недвижимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OldNumbers" type="Num1:tOldNumbers" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ранее присвоенные государственные учетные номера</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssignationName" type="Simple1:s250" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Проектируемое назначение объекта незавершенного строительства</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="KeyParameters" type="Param2:tKeyParameters" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Основные характеристики</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="adrOut4:tAddressOut">
+				<xs:annotation>
+					<xs:documentation>Адрес (описание местоположения)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CadastralCost" type="Cos1:tCadastralCost" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о величине кадастровой стоимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Rights" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о правах</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Right" type="tRight" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Право</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Encumbrances" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения об ограничениях (обременениях) прав</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Encumbrance" type="tEncumbranceOKS" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Ограничение (обременение) права</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="EntitySpatial" type="Spa5:tEntitySpatialOKSOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Описание местоположения границ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Plans" type="tPlans" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Планы</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DegreeReadiness" type="Simple1:i_Min1Max99" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Степень готовности в процентах</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Notes" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Особые отметки</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AllNewObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, одновременно образованных с данным объектом недвижимости (строка 16.1)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OffspringObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, образованных из данного объекта недвижимости (строка 16.2)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RemoveObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, подлежащих снятию с кадастрового учета (строка 16.3)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CadastralNumber" type="Simple1:s40" use="required">
+			<xs:annotation>
+				<xs:documentation>Кадастровый номер</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="State" type="dStat1:dStates">
+			<xs:annotation>
+				<xs:documentation>Статус записи об ОН </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateExpiry" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата истечения временного характера сведений об ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateCreated" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата постановки на учет (дата внесения номера в ГКН)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateRemoved" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата снятия с государственного кадастрового учета (Дата аннулирования сведений в ГКН)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tFlat">
+		<xs:annotation>
+			<xs:documentation>Помещение</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CadastralBlock" type="Simple1:s40">
+				<xs:annotation>
+					<xs:documentation>Номер кадастрового квартала</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ObjectType">
+				<xs:annotation>
+					<xs:documentation>Вид объекта - Помещение</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="dRe3:dRealty">
+						<xs:pattern value="002001003000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParentCadastralNumbers" type="tParentCadastralNumberFlatOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер объекта недвижимости, в котором расположено помещение</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrevCadastralNumbers" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер объекта (объектов) недвижимости, из которого (которых) был образован данный объект недвижимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OldNumbers" type="Num1:tOldNumbers" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ранее присвоенные государственные учетные номера</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Assignation" type="Afl1:tAssignationFlat">
+				<xs:annotation>
+					<xs:documentation>Назначение и вид помещения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Area" type="Simple2:d21_1">
+				<xs:annotation>
+					<xs:documentation>Площадь в квадратных метрах</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="adrOut4:tAddressOut">
+				<xs:annotation>
+					<xs:documentation>Адрес (описание местоположения)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PositionInObject" type="tPositionInObjectOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Расположение в пределах объекта недвижимости, имеющего или не имеющего этажи</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CadastralCost" type="Cos1:tCadastralCost" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о величине кадастровой стоимости</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Rights" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о правах</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Right" type="tRight" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Право</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Encumbrances" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения об ограничениях (обременениях) прав</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Encumbrance" type="tEncumbranceOKS" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Ограничение (обременение) права</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SubFlats" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о частях помещения</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SubFlat" type="tSubFlat" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Сведения о части помещения</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Notes" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Особые отметки</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="CulturalHeritage" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Объект культурного наследия</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AllNewObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, одновременно образованных с данным объектом недвижимости (строка 13.1)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OffspringObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, образованных из данного объекта недвижимости (строка 13.2)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RemoveObjects" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровые номера объектов недвижимости, подлежащих снятию с кадастрового учета (строка 13.3)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CadastralNumber" type="Simple1:s40" use="required">
+			<xs:annotation>
+				<xs:documentation>Кадастровый номер</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="State" type="dStat1:dStates">
+			<xs:annotation>
+				<xs:documentation>Статус записи об ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateExpiry" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата истечения временного характера сведений об ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateCreated" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата постановки на учет (дата внесения номера в ГКН)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateRemoved" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата снятия с государственного кадастрового учета</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tConditionalPartLinear">
+		<xs:annotation>
+			<xs:documentation>Условная часть линейного сооружения</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ObjectType">
+				<xs:annotation>
+					<xs:documentation>Вид объекта - Условная часть линейного сооружения</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="dRe3:dRealty">
+						<xs:pattern value="002001004002"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParentCadastralNumbers" type="tCadastralNumbersOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер земельного участка (земельных участков), в пределах которого (которых) расположена условная часть (сведения ГКН)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ParentParcels" type="tParentParcels" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сведения о земельном участке (земельных участках), в пределах которого (которых) расположена условная часть (на основе пространственного анализа для формирования КВ.2)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EntitySpatial" type="Spa5:tEntitySpatialOKSOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Описание местоположения границ условной части линейного сооружения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CadastralNumber" type="Simple1:s40" use="required">
+			<xs:annotation>
+				<xs:documentation>Кадастровый номер (номер части - кадастровый номер, присвоенный на уровне кадастрового округа «Общероссийский» и номер кадастрового округа, в котором расположена данная часть)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!--Кадастровые номера-->
+	<xs:complexType name="tCadastralBlocksOut">
+		<xs:annotation>
+			<xs:documentation>Номера кадастровых кварталов</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CadastralBlock" type="Simple1:s40" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Номер кадастрового квартала</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tCadastralNumbersOut">
+		<xs:annotation>
+			<xs:documentation>Кадастровые номера объектов недвижимости</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CadastralNumber" type="Simple1:s40" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tParentCadastralNumberFlatOut">
+		<xs:annotation>
+			<xs:documentation>Кадастровый номер ОН, в котором расположено помещение</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CadastralNumberOKS" type="Simple1:s40" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер здания или сооружения, в котором расположено помещение</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CadastralNumberFlat" type="Simple1:s40" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер квартиры, в которой расположена комната (если кадастровый паспорт выдается на комнату в квартире)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--Сведения о частях объектов недвижимости-->
+	<xs:complexType name="tSubBuilding">
+		<xs:annotation>
+			<xs:documentation>Сведения о части здания</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Area" type="Simple2:d21_1">
+				<xs:annotation>
+					<xs:documentation>Площадь в квадратных метрах</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Encumbrance" type="tEncumbranceOKS" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ограничение (обременение) права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Описание местоположения части</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="NumberRecord" type="Simple1:s40" use="required">
+			<xs:annotation>
+				<xs:documentation>Учетный номер части</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="State" type="dStat1:dStates">
+			<xs:annotation>
+				<xs:documentation>Статус записи о части ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateExpiry" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата истечения временного характера сведений о части ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tSubObject">
+		<xs:annotation>
+			<xs:documentation>Сведения о части сооружения, части объекта незавершенного строительства</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="KeyParameter" type="Param2:tKeyParameter" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Основная характеристика</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Encumbrance" type="tEncumbranceOKS" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ограничение (обременение) права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Описание местоположения части</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="NumberRecord" type="Simple1:s40" use="required">
+			<xs:annotation>
+				<xs:documentation>Учетный номер части</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="State" type="dStat1:dStates">
+			<xs:annotation>
+				<xs:documentation>Статус записи о части ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateExpiry" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата истечения временного характера сведений о части ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tSubFlat">
+		<xs:annotation>
+			<xs:documentation>Сведения о части помещения</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Area" type="Simple2:d21_1">
+				<xs:annotation>
+					<xs:documentation>Площадь в квадратных метрах</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Encumbrance" type="tEncumbranceOKS" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ограничение (обременение) права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Описание местоположения части</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="NumberRecord" type="Simple1:s40" use="required">
+			<xs:annotation>
+				<xs:documentation>Учетный номер части</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="State" type="dStat1:dStates">
+			<xs:annotation>
+				<xs:documentation>Статус записи о части ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DateExpiry" type="xs:date">
+			<xs:annotation>
+				<xs:documentation>Дата истечения временного характера сведений о части ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!--Расположение в пределах объекта капитального строительства-->
+	<xs:complexType name="tPositionInObjectOut">
+		<xs:annotation>
+			<xs:documentation>Расположение в пределах здания, сооружения, имеющего или не имеющего этажи</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="Position" type="tPositionOut">
+				<xs:annotation>
+					<xs:documentation>Расположение в пределах здания, сооружения, не имеющего этажи</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Levels" type="tLevelsOut">
+				<xs:annotation>
+					<xs:documentation>Уровни (этажи), на которых расположено помещение</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="tPositionOut">
+		<xs:annotation>
+			<xs:documentation>Расположение на плане</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Plans" type="tPlans" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Планы</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="NumberOnPlan" type="Simple1:s200" use="required">
+			<xs:annotation>
+				<xs:documentation>Номер на плане</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tLevelsOut">
+		<xs:annotation>
+			<xs:documentation>Уровни (этажи), на которых расположено помещение</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Level" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Уровень (этаж), на котором расположено помещение</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="tLevel">
+							<xs:sequence>
+								<xs:element name="Position" type="tPositionOut" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Расположение в пределах этажа (части этажа)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tLevel">
+		<xs:annotation>
+			<xs:documentation>Уровень (этаж), на котором расположено помещение</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Number" type="Simple1:s200" use="required">
+			<xs:annotation>
+				<xs:documentation>Номер этажа</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Type" type="dTs1:dTypeStorey" use="required">
+			<xs:annotation>
+				<xs:documentation>Тип этажа</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tPlans">
+		<xs:annotation>
+			<xs:documentation>Планы</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Plan" type="tPlan" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>План</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tPlan">
+		<xs:annotation>
+			<xs:documentation>План</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Name" type="Simple1:s500" use="required">
+			<xs:annotation>
+				<xs:documentation>Относительный путь к файлу с изображением\Имя файла с изображением</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Scale" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Масштаб</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!--Сведения о ЗУ, в пределах которых расположен ОН-->
+	<xs:complexType name="tParentParcels">
+		<xs:annotation>
+			<xs:documentation>Сведения о земельных участках, в пределах которых расположен данный объект недвижимости</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ParentParcel" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Сведения о земельном участке</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CadastralNumber" type="Simple1:s40">
+							<xs:annotation>
+								<xs:documentation>Кадастровый номер земельного участка</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:choice>
+							<xs:element name="EntitySpatial" type="Spa5:tEntitySpatialZUOut" minOccurs="1">
+								<xs:annotation>
+									<xs:documentation>Описание местоположения границ</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Contours" minOccurs="1">
+								<xs:annotation>
+									<xs:documentation>Контуры многоконтурного участка</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Contour" type="tContour" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Контур многоконтурного участка</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tContour">
+		<xs:annotation>
+			<xs:documentation>Описание контура многоконтурного участка</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EntitySpatial" type="Spa5:tEntitySpatialZUOut" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Описание местоположения границ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="NumberRecord" type="Simple1:p10" use="required">
+			<xs:annotation>
+				<xs:documentation>Учетный номер контура</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!--Сведения о правах, об ограничениях (обременениях) прав-->
+	<xs:complexType name="tRight">
+		<xs:annotation>
+			<xs:documentation>Сведения о правах</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="Simple1:s255" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Вид права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" type="dRi2:dRights">
+				<xs:annotation>
+					<xs:documentation>Код права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Owners" type="tOwners" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Правообладатели</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="Share" type="tShare" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Доля в праве</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ShareText" type="Simple1:s255" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Значение доли текстом</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="Desc" type="Simple1:s255" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Особые отметки</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Registration" type="tRegistration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Государственная регистрация права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Documents" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Документы - основания для внесения сведений</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Document" type="DocOut4:tDocumentWithoutAppliedFile" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Реквизиты документа</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tEncumbranceOKS">
+		<xs:annotation>
+			<xs:documentation>Сведения об ограничениях (обременениях) прав</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="Simple1:s4000" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Содержание ограничения (обременения) прав</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" type="dEn3:dEncumbrances">
+				<xs:annotation>
+					<xs:documentation>Код обременения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OwnersRestrictionInFavorem" type="tOwnerRestrictionInFavorem" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Лица, в пользу которых ограничиваются (обременяются) права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Duration" type="tDuration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Срок действия ограничения (обременения) права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Registration" type="tRegistration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Государственная регистрация ограничения (обременения) права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Document" type="DocOut4:tDocumentWithoutAppliedFile" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Реквизиты документа, на основании которого возникло ограничение (обременение) права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tShare">
+		<xs:annotation>
+			<xs:documentation>Доля в праве</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Numerator" type="xs:integer" use="required">
+			<xs:annotation>
+				<xs:documentation>Числитель</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Denominator" type="xs:integer" use="required">
+			<xs:annotation>
+				<xs:documentation>Знаменатель</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tRegistration">
+		<xs:annotation>
+			<xs:documentation>Номер и дата государственной регистрации (согласно записи ЕГРП)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RegNumber" type="Simple1:s45" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Номер государственной регистрации</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RegDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Дата государственной регистрации </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tDuration">
+		<xs:annotation>
+			<xs:documentation>Срок действия (продолжительность)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Started" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Дата возникновения ограничения (обременения) прав</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="Stopped" type="xs:date" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Дата прекращения ограничения (обременения) прав</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Term" type="Simple1:s100" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Продолжительность</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tOwners">
+		<xs:annotation>
+			<xs:documentation>Правообладатели</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Owner" type="tOwner" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Правообладатель</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tOwner">
+		<xs:annotation>
+			<xs:documentation>Обладатели прав, ограничений (обременений) прав</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="Person">
+				<xs:annotation>
+					<xs:documentation>Физическое лицо</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:group ref="gFIO"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Organization" type="tNameOwner">
+				<xs:annotation>
+					<xs:documentation>Юридическое лицо</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Governance" type="tNameOwner">
+				<xs:annotation>
+					<xs:documentation>Субъект публичного права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="tNameOwner">
+		<xs:annotation>
+			<xs:documentation>Наименование правообладателя (юридического лица, субъекта публичного права)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="Simple1:s500">
+				<xs:annotation>
+					<xs:documentation>Наименование</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tOwnerRestrictionInFavorem">
+		<xs:annotation>
+			<xs:documentation>Лица, в пользу которых ограничиваются (обременяются) права</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OwnerRestrictionInFavorem" type="tOwner" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Лицо, в пользу которого установлено ограничение (обременение) права</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--Сведения о кадастровом инженере-->
+	<xs:complexType name="tEngineerOut">
+		<xs:annotation>
+			<xs:documentation>Кадастровый инженер</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="gFIO"/>
+			<xs:element name="NCertificate" type="Simple1:s50">
+				<xs:annotation>
+					<xs:documentation>Номер квалификационного аттестата кадастрового инженера</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Organization" type="tOrganizationNameOut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Юридическое лицо, если кадастровый инженер является работником юридического лица</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:group name="gFIO">
+		<xs:annotation>
+			<xs:documentation>ФИО физического лица</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FamilyName" type="Simple1:s100">
+				<xs:annotation>
+					<xs:documentation>Фамилия</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FirstName" type="Simple1:s100">
+				<xs:annotation>
+					<xs:documentation>Имя</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Patronymic" type="Simple1:s100" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Отчество</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="tOrganizationNameOut">
+		<xs:annotation>
+			<xs:documentation>Наименование юридического лица, если кадастровый инженер является работником юридического лица</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="Simple1:s255">
+				<xs:annotation>
+					<xs:documentation>Наименование юридического лица</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--Сведения об объектах культурного наследия-->
+	<xs:element name="CulturalHeritage">
+		<xs:annotation>
+			<xs:documentation>Объект культурного наследия</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element name="InclusionEGROKN" type="Cult2:tInclusionEGROKN">
+						<xs:annotation>
+							<xs:documentation>Включение объекта недвижимости в ЕГРОКН</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AssignmentEGROKN" type="Cult2:tAssignmentEGROKN">
+						<xs:annotation>
+							<xs:documentation>Отнесение объекта недвижимости к выявленным объектам культурного наследия, подлежащим государственной охране до принятия решения о включении его в ЕГРОКН</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
+				<xs:element name="Document" type="DocOut4:tDocumentWithoutAppliedFile">
+					<xs:annotation>
+						<xs:documentation>Реквизиты соответствующего решения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:Afl1="urn://x-artefacts-rosreestr-ru/commons/complex-types/assignation-flat/1.0.1" xmlns:dAf1="urn://x-artefacts-rosreestr-ru/commons/directories/ass-flat/1.0.1" xmlns:dAft1="urn://x-artefacts-rosreestr-ru/commons/directories/ass-flat-type/1.0.1" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/complex-types/assignation-flat/1.0.1" elementFormDefault="qualified">
+	<!--Классификатор назначений помещений-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/ass-flat/1.0.1" schemaLocation="dAssFlat_v01.xsd"/>
+	<!--Классификатор назначений видов жилого помещения-->
+	<xs:import namespace="urn://x-artefacts-rosreestr-ru/commons/directories/ass-flat-type/1.0.1" schemaLocation="dAssFlatType_v01.xsd"/>
+	<!--Подсхема "Назначение и вид помещения"-->
+	<xs:complexType name="tAssignationFlat">
+		<xs:annotation>
+			<xs:documentation>Назначение и вид помещения</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AssignationCode" type="dAf1:dAssFlat">
+				<xs:annotation>
+					<xs:documentation>Назначение помещения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="AssignationType" type="dAft1:dAssFlatType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Вид жилого помещения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="TotalAssets" type="xs:boolean" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Нежилое помещение, являющееся общим имуществом в многоквартирном доме (True - да)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

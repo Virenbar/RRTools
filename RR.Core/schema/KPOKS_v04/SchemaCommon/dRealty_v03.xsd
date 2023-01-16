@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dRe3="urn://x-artefacts-rosreestr-ru/commons/directories/realty/3.0.1" targetNamespace="urn://x-artefacts-rosreestr-ru/commons/directories/realty/3.0.1" elementFormDefault="qualified">
+	<xs:simpleType name="dRealty">
+		<xs:annotation>
+			<xs:documentation>Виды объектов государственного кадастра недвижимости (ГКН) и Единого государственного реестра прав на недвижимое имущество и сделок с ним (ЕГРП)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="002001000000">
+				<xs:annotation>
+					<xs:documentation>Объекты учёта и регистрации</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002001001000">
+				<xs:annotation>
+					<xs:documentation>Земельный участок</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002001002000">
+				<xs:annotation>
+					<xs:documentation>Здание</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002001003000">
+				<xs:annotation>
+					<xs:documentation>Помещение</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002001004000">
+				<xs:annotation>
+					<xs:documentation>Сооружение</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002001004001">
+				<xs:annotation>
+					<xs:documentation>Линейное сооружение, расположенное более чем в одном кадастровом округе</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002001004002">
+				<xs:annotation>
+					<xs:documentation>Условная часть линейного сооружения</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002001005000">
+				<xs:annotation>
+					<xs:documentation>Объект незавершённого строительства</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002001006000">
+				<xs:annotation>
+					<xs:documentation>Предприятие как имущественный комплекс (ПИК)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002001007000">
+				<xs:annotation>
+					<xs:documentation>Участок недр</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002001008000">
+				<xs:annotation>
+					<xs:documentation>Единый недвижимый комплекс</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002002000000">
+				<xs:annotation>
+					<xs:documentation>Границы</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002002001000">
+				<xs:annotation>
+					<xs:documentation>Государственная граница Российской Федерации</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002002002000">
+				<xs:annotation>
+					<xs:documentation>Граница между субъектами Российской Федерации</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002002003000">
+				<xs:annotation>
+					<xs:documentation>Граница муниципального образования</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002002004000">
+				<xs:annotation>
+					<xs:documentation>Граница населённого пункта</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002003000000">
+				<xs:annotation>
+					<xs:documentation>Зоны</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002003001000">
+				<xs:annotation>
+					<xs:documentation>Зона с особыми условиями использования территорий</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002003002000">
+				<xs:annotation>
+					<xs:documentation>Территориальная зона</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002003003000">
+				<xs:annotation>
+					<xs:documentation>Особая экономическая зона</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002004000000">
+				<xs:annotation>
+					<xs:documentation>Территория объекта культурного наследия</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
