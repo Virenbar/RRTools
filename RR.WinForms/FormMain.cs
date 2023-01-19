@@ -1,4 +1,5 @@
 using RR.Core;
+using RR.WinForms.Properties;
 using System.Text.RegularExpressions;
 
 namespace RR.WinForms
@@ -14,6 +15,8 @@ namespace RR.WinForms
         public FormMain()
         {
             InitializeComponent();
+            DataBindings.Add("BackColor", Settings.Default, "BackColor", true, DataSourceUpdateMode.OnPropertyChanged);
+            DataBindings.Add("ForeColor", Settings.Default, "ForeColor", true, DataSourceUpdateMode.OnPropertyChanged);
 
             if (!XMLInput.Exists) { XMLInput.Create(); }
             XMLWatcher = new(XMLInput.FullName)
@@ -31,22 +34,25 @@ namespace RR.WinForms
         private void B_PDFConvert_Click(object sender, EventArgs e)
         {
             if (XMLFiles.Count == 0) { return; }
-            var Converter = new KPOKSConverter();
+            var ToPDF = false;
+
+            var Converter = new XMLConverter();
             foreach (var file in XMLFiles)
             {
                 var HTMLPath = Path.Combine(HTMLOutput.FullName, Path.GetRelativePath(XMLInput.FullName, file.FullName));
                 HTMLPath = HTMLPath.Replace(file.Extension, ".html");
                 var HTML = new FileInfo(HTMLPath);
                 Directory.CreateDirectory(HTML.DirectoryName);
-                Converter.TransformXMLtoHTML(file.FullName, HTML.FullName);
+                Converter.SaveToHTML(file.FullName, HTML.FullName);
             }
+            return;
             foreach (var file in XMLFiles)
             {
                 var PDFPath = Path.Combine(PDFOutput.FullName, Path.GetRelativePath(XMLInput.FullName, file.FullName));
                 PDFPath = PDFPath.Replace(file.Extension, ".pdf");
                 var PDF = new FileInfo(PDFPath);
                 Directory.CreateDirectory(PDF.DirectoryName);
-                Converter.TransformXMLtoPDF(file.FullName, PDF.FullName);
+                Converter.SaveToPDF(file.FullName, PDF.FullName);
             }
         }
 

@@ -31,6 +31,7 @@
             this.B_PDFConvert = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.B_PDFConvert, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(192, 55);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(167, 93);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -72,11 +73,20 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 100);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(482, 223);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(121, 97);
+            this.listView1.TabIndex = 3;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(606, 326);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormMain";
             this.Text = "FormMain";
@@ -91,5 +101,6 @@
         private Button B_PDFConvert;
         private Label label1;
         private TableLayoutPanel tableLayoutPanel1;
+        private ListView listView1;
     }
 }
