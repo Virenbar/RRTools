@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RR.Core.Properties {
+namespace RR.WinForms.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace RR.Core.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RR.Core.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RR.WinForms.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,23 +61,12 @@ namespace RR.Core.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-        ///&lt;!DOCTYPE xsl:stylesheet [
-        ///	&lt;!ENTITY nbsp &quot;&amp;#160;&quot;&gt;
-        ///	&lt;!ENTITY raquo &quot;&amp;#187;&quot;&gt;
-        ///	&lt;!ENTITY laquo &quot;&amp;#171;&quot;&gt;
-        ///	&lt;!ENTITY number &quot;&amp;#8470;&quot;&gt;
-        ///	&lt;!ENTITY sup2 &quot;&amp;#178;&quot;&gt;
-        ///]&gt;
-        ///&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; 
-        ///			xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; 
-        ///			xmlns:kp=&quot;urn://x-artefacts-rosreestr-ru/outgoing/kpoks/4.0.1&quot; 
-        ///			xmlns:cert=&quot;urn://x-artefacts-rosreestr-ru/commons/complex-types/certification-doc/1.0&quot; 
-        ///			xmlns:doc=&quot; [остаток строки не уместился]&quot;;.
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
-        internal static string Common {
+        internal static System.Drawing.Icon RR_Icon {
             get {
-                return ResourceManager.GetString("Common", resourceCulture);
+                object obj = ResourceManager.GetObject("RR_Icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

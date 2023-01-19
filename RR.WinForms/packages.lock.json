@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net6.0-windows7.0": {
+      "HtmlRenderer.Core": {
+        "type": "Transitive",
+        "resolved": "1.5.0.5",
+        "contentHash": "QfZkSOb8HomRkKW3EAjT/VT48x6q+bgK4IBA9gFF+5FVTbvmMEIm42NsXEx/LTBHMssnQTPe94X0Bi8KdUIVQA=="
+      },
+      "HtmlRenderer.PdfSharp": {
+        "type": "Transitive",
+        "resolved": "1.5.0.6",
+        "contentHash": "uk2lzFa/0zQSk8im2CX8ROXlqy8YAJUG28b5/G8wa0YNdO6+04bEl3iZCaThkcyNWnnIsHCn5hWR3vZjc6JhmA==",
+        "dependencies": {
+          "HtmlRenderer.Core": "1.5.0.5",
+          "PDFsharp": "1.32.3057"
+        }
+      },
+      "PDFsharp": {
+        "type": "Transitive",
+        "resolved": "1.32.3057",
+        "contentHash": "M8w6e4R+jA1j3ddPCY6jNnb8RG21ZgCr+ENapwaH5NPzNl600f1wOcCPY2hEO+jb0aCGjcMHrWk/K+PC1cw0PQ=="
+      },
+      "rr.core": {
+        "type": "Project",
+        "dependencies": {
+          "HtmlRenderer.PdfSharp": "[1.5.0.6, )"
+        }
+      }
+    },
+    "net6.0-windows7.0/win-x64": {},
+    "net6.0-windows7.0/win-x86": {}
+  }
+}
