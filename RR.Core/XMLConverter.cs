@@ -1,30 +1,48 @@
-﻿using System.Text.RegularExpressions;
+﻿using PuppeteerSharp;
+using PuppeteerSharp.Media;
+using System.Text.RegularExpressions;
 using System.Xml.Xsl;
-using TheArtOfDev.HtmlRenderer.PdfSharp;
 
 namespace RR.Core
 {
-    public class XMLConverter
+    public class XMLConverter : IDisposable
     {
+        private readonly PdfOptions PDFConfig = new() { Format = PaperFormat.A4 };
         private readonly XsltSettings Settings = new(true, true);
         private readonly XslCompiledTransform Transform = new();
         private readonly XmlReaderSettings XMLR = new() { DtdProcessing = DtdProcessing.Parse };
+        private IBrowser? Browser;
 
         public XMLConverter()
+        { }
+
+        public async Task PrepareBrowser()
         {
+            using var browserFetcher = new BrowserFetcher();
+            await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
+            Browser = await Puppeteer.LaunchAsync(new LaunchOptions { Headless = true });
         }
 
-        public void SaveToHTML(string inputXML, string outputHTML)
+        public void SaveAsHTML(string inputXML, string outputHTML)
         {
             var HTML = TransformToHTML(inputXML);
             File.WriteAllText(outputHTML, HTML);
         }
 
-        public void SaveToPDF(string inputXML, string outputPDF)
+        public async Task SaveAsPDF(string inputXML, string outputPDF, PDFOrientation orientation)
         {
+            if (Browser is null) { throw new Exception("Браузер не инициализирован"); }
+
+            PDFConfig.Landscape = orientation switch
+            {
+                PDFOrientation.Album => true,
+                PDFOrientation.Book => false,
+                _ => throw new NotImplementedException()
+            };
             var HTML = TransformToHTML(inputXML);
-            var PDF = PdfGenerator.GeneratePdf(HTML, PdfSharp.PageSize.A4);
-            PDF.Save(outputPDF);
+            var Page = await Browser.NewPageAsync();
+            await Page.SetContentAsync(HTML);
+            await Page.PdfAsync(outputPDF, PDFConfig);
         }
 
         private string TransformToHTML(string inputXML)
@@ -44,5 +62,11 @@ namespace RR.Core
             HTML = HTML.Replace(@"rowspan=""0""", @"rowspan=""1""");
             return HTML;
         }
+
+        #region IDisposable
+
+        public void Dispose() => Browser?.Dispose();
+
+        #endregion IDisposable
     }
 }

@@ -10,7 +10,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="HtmlRenderer.PdfSharp" Version="1.5.0.6" />
+		<PackageReference Include="PuppeteerSharp" Version="9.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
