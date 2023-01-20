@@ -64,6 +64,6 @@ jobs:
         if: matrix.configuration == 'Release'
         uses: actions/upload-artifact@v3
         with:
-          name: RR.WinForms(${{ matrix.profile }})
+          name: RRTools(${{ matrix.profile }})
           path: RR.WinForms\publish\${{ matrix.profile }}\RRTools.exe
           if-no-files-found: error
