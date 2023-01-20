@@ -12,7 +12,12 @@ namespace RR.WinForms
             AppContext.SetSwitch("Switch.System.Xml.AllowDefaultResolver", true);
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+#if NET6_0_OR_GREATER
             ApplicationConfiguration.Initialize();
+#else
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+#endif
             Application.Run(new FormMain());
         }
     }

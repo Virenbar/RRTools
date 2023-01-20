@@ -11,16 +11,18 @@ namespace RR.Core
         private readonly XsltSettings Settings = new(true, true);
         private readonly XslCompiledTransform Transform = new();
         private readonly XmlReaderSettings XMLR = new() { DtdProcessing = DtdProcessing.Parse };
-        private IBrowser? Browser;
+        private IBrowser Browser;
 
         public XMLConverter()
         { }
 
         public async Task PrepareBrowser()
         {
-            using var browserFetcher = new BrowserFetcher();
-            await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
-            Browser = await Puppeteer.LaunchAsync(new LaunchOptions { Headless = true });
+            using (var browserFetcher = new BrowserFetcher())
+            {
+                await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
+                Browser = await Puppeteer.LaunchAsync(new LaunchOptions { Headless = true });
+            }
         }
 
         public void SaveAsHTML(string inputXML, string outputHTML)

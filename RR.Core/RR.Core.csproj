@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFrameworks>net6.0-windows;net472</TargetFrameworks>
 		<DebugType>embedded</DebugType>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
+		<LangVersion>10</LangVersion>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/Virenbar/RRTools</RepositoryUrl>
 	</PropertyGroup>

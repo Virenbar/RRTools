@@ -19,13 +19,19 @@ jobs:
     strategy:
       matrix:
         configuration: [Release]
-        profile: [win, win-self]
+        profile: [win, win-472]
+        include:
+          - profile: "win"
+            framework: "net6.0-windows"
+          - profile: "win-472"
+            framework: "net472"
     runs-on: windows-latest
     env:
       DOTNET_NOLOGO: true
       SolutionName: RRTools.sln
       Configuration: ${{ matrix.configuration }}
       Profile: ${{ matrix.profile }}
+      Framework: ${{ matrix.framework }}
     outputs:
       version: ${{steps.version.outputs.version}}
     steps:
@@ -58,12 +64,12 @@ jobs:
 
       - name: Build artifact
         if: matrix.configuration == 'Release'
-        run: dotnet publish -c Release -p:PublishProfile=$env:Profile /property:Version=$env:VERSION
+        run: dotnet publish -c Release -p:PublishProfile=$env:Profile -f $env:Framework /property:Version=$env:VERSION
 
       - name: Upload artifact
         if: matrix.configuration == 'Release'
         uses: actions/upload-artifact@v3
         with:
           name: RRTools(${{ matrix.profile }})
-          path: RR.WinForms\publish\${{ matrix.profile }}\RRTools.exe
+          path: RR.WinForms\publish\${{ matrix.profile }}\**
           if-no-files-found: error

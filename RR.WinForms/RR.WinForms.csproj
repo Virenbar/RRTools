@@ -2,24 +2,28 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net6.0-windows</TargetFramework>
+		<TargetFrameworks>net6.0-windows;net472</TargetFrameworks>
 		<DebugType>embedded</DebugType>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
+		<LangVersion>10</LangVersion>
 		<ApplicationIcon>Resources/RR_Icon.ico</ApplicationIcon>
 		<RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
 		<UseWindowsForms>true</UseWindowsForms>
+		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/Virenbar/RRTools</RepositoryUrl>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<DeleteExistingFiles>true</DeleteExistingFiles>
-		<PublishSingleFile>true</PublishSingleFile>
 		<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
 		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 		<AssemblyName>RRTools</AssemblyName>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\RR.Core\RR.Core.csproj" />
@@ -27,9 +31,9 @@
 
 	<ItemGroup>
 		<Compile Update="Properties\Resources.Designer.cs">
-		  <DesignTime>True</DesignTime>
-		  <AutoGen>True</AutoGen>
-		  <DependentUpon>Resources.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
 		</Compile>
 		<Compile Update="Properties\Settings.Designer.cs">
 			<DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -39,10 +43,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Properties\Resources.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>

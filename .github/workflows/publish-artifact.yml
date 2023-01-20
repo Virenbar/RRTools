@@ -22,8 +22,8 @@ jobs:
 
       - name: Archive artifacts
         run: |
-          zip -r "RRTools.zip" "RRTools(win)"
-          zip -r "RRTools(dotnet).zip" "RRTools(win-self)"
+          zip -r "RRTools(NET.6).zip" "RRTools(win)"
+          zip -r "RRTools(NET.472).zip" "RRTools(win-472)"
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
