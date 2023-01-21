@@ -18,20 +18,16 @@ jobs:
     name: Build
     strategy:
       matrix:
-        configuration: [Release]
-        profile: [win, win-472]
         include:
-          - profile: "win"
-            framework: "net6.0-windows"
-          - profile: "win-472"
-            framework: "net472"
+          - framework: "net6.0-windows"
+            profile: "net6"
+          - framework: "net472"
+            profile: "net472"
     runs-on: windows-latest
     env:
       DOTNET_NOLOGO: true
-      SolutionName: RRTools.sln
-      Configuration: ${{ matrix.configuration }}
-      Profile: ${{ matrix.profile }}
       Framework: ${{ matrix.framework }}
+      Profile: ${{ matrix.profile }}
     outputs:
       version: ${{steps.version.outputs.version}}
     steps:
@@ -45,10 +41,6 @@ jobs:
         with:
           dotnet-version: 6.x
 
-      - name: Set VERSION
-        id: version
-        run: .\.github\scripts\version.ps1
-
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -57,19 +49,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
+      - name: Set VERSION
+        id: version
+        run: .\.github\scripts\version.ps1
+
       - name: Build solution
         run: |
           dotnet restore --locked-mode
-          dotnet build -c $env:Configuration
+          dotnet build -c Release
 
       - name: Build artifact
-        if: matrix.configuration == 'Release'
         run: dotnet publish -c Release -p:PublishProfile=$env:Profile -f $env:Framework /property:Version=$env:VERSION
 
       - name: Upload artifact
-        if: matrix.configuration == 'Release'
         uses: actions/upload-artifact@v3
         with:
-          name: RRTools(${{ matrix.profile }})
-          path: RR.WinForms\publish\${{ matrix.profile }}\**
+          name: RRTools(${{ matrix.framework }})
+          path: RR.WinForms\publish\${{ matrix.framework }}\**
           if-no-files-found: error
