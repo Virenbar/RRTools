@@ -72,9 +72,9 @@
             this.B_Convert.Location = new System.Drawing.Point(3, 36);
             this.B_Convert.Name = "B_Convert";
             this.B_Convert.Padding = new System.Windows.Forms.Padding(1);
-            this.B_Convert.Size = new System.Drawing.Size(103, 27);
+            this.B_Convert.Size = new System.Drawing.Size(108, 27);
             this.B_Convert.TabIndex = 0;
-            this.B_Convert.Text = "Преобразовать";
+            this.B_Convert.Text = "Конвертировать";
             this.B_Convert.UseVisualStyleBackColor = true;
             this.B_Convert.Click += new System.EventHandler(this.B_PDFConvert_Click);
             // 
@@ -104,12 +104,12 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.B_Convert, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.B_OpenOut, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(472, 9);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(467, 9);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(109, 66);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(114, 66);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
             // B_OpenOut
@@ -120,7 +120,7 @@
             this.B_OpenOut.Location = new System.Drawing.Point(3, 3);
             this.B_OpenOut.Name = "B_OpenOut";
             this.B_OpenOut.Padding = new System.Windows.Forms.Padding(1);
-            this.B_OpenOut.Size = new System.Drawing.Size(103, 27);
+            this.B_OpenOut.Size = new System.Drawing.Size(108, 27);
             this.B_OpenOut.TabIndex = 0;
             this.B_OpenOut.Text = "Открыть папку";
             this.B_OpenOut.UseVisualStyleBackColor = true;

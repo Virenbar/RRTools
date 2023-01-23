@@ -1,5 +1,7 @@
-﻿using PuppeteerSharp;
+﻿using Microsoft.Win32;
+using PuppeteerSharp;
 using PuppeteerSharp.Media;
+using System.Net.WebSockets;
 using System.Text.RegularExpressions;
 using System.Xml.Xsl;
 
@@ -18,11 +20,37 @@ namespace RR.Core
 
         public async Task PrepareBrowser()
         {
-            using (var browserFetcher = new BrowserFetcher())
+            var Options = new LaunchOptions
             {
-                await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
-                Browser = await Puppeteer.LaunchAsync(new LaunchOptions { Headless = true });
+                Headless = true,
+                WebSocketFactory = async (uri, socketOptions, cancellationToken) =>
+                {
+                    var client = SystemClientWebSocket.CreateClientWebSocket();
+                    if (client is System.Net.WebSockets.Managed.ClientWebSocket managed)
+                    {
+                        managed.Options.KeepAliveInterval = TimeSpan.FromSeconds(0);
+                        await managed.ConnectAsync(uri, cancellationToken);
+                    }
+                    else
+                    {
+                        var coreSocket = client as ClientWebSocket;
+                        coreSocket.Options.KeepAliveInterval = TimeSpan.FromSeconds(0);
+                        await coreSocket.ConnectAsync(uri, cancellationToken);
+                    }
+                    return client;
+                }
+            };
+            if (Registry.GetValue(@"HKEY_CLASSES_ROOT\ChromeHTML\shell\open\command", null, null) is string command)
+            {
+                var Command = command.Split('\"');
+                Options.ExecutablePath = Command.Length >= 2 ? Command[1] : null;
             }
+            else
+            {
+                using var browserFetcher = new BrowserFetcher();
+                await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
+            }
+            Browser = await Puppeteer.LaunchAsync(Options);
         }
 
         public void SaveAsHTML(string inputXML, string outputHTML)
@@ -42,18 +70,19 @@ namespace RR.Core
                 _ => throw new NotImplementedException()
             };
             var HTML = TransformToHTML(inputXML);
-            var Page = await Browser.NewPageAsync();
+            using var Page = await Browser.NewPageAsync();
             await Page.SetContentAsync(HTML);
             await Page.PdfAsync(outputPDF, PDFConfig);
+            await Page.CloseAsync();
         }
 
         private string TransformToHTML(string inputXML)
         {
-            XmlDocument document = new();
-            document.Load(inputXML);
-            var pi = document.SelectSingleNode("processing-instruction('xml-stylesheet')");
-            if (pi is null) { throw new Exception("Не указана ссылка на шаблон"); }
-            var URI = Regex.Match(pi.Value!, @"href=""(.+)""").Groups[1].Value;
+            XmlDocument XML = new();
+            XML.Load(inputXML);
+            var PI = XML.SelectSingleNode("processing-instruction('xml-stylesheet')");
+            if (PI is null) { throw new Exception("Не указана ссылка на шаблон"); }
+            var URI = Regex.Match(PI.Value!, @"href=""(.+)""").Groups[1].Value;
 
             using var reader = XmlReader.Create(URI, XMLR);
             using var writer = new StringWriter();

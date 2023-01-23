@@ -11,6 +11,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="PuppeteerSharp" Version="9.0.1" />
+		<PackageReference Include="System.Net.WebSockets.Client.Managed" Version="1.0.22" />
 	</ItemGroup>
 
 	<ItemGroup>

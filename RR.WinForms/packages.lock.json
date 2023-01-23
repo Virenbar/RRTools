@@ -113,6 +113,15 @@
           "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         }
       },
+      "System.Net.WebSockets.Client.Managed": {
+        "type": "Transitive",
+        "resolved": "1.0.22",
+        "contentHash": "WqEOxPlXjuZrIjUtXNE9NxEfU/n5E35iV2PtoZdJSUC4tlrqwHnTee+wvMIM4OUaJWmwrymeqcgYrE0IkGAgLA==",
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Numerics.Vectors": "4.4.0"
+        }
+      },
       "System.Numerics.Vectors": {
         "type": "Transitive",
         "resolved": "4.5.0",
@@ -144,7 +153,8 @@
       "rr.core": {
         "type": "Project",
         "dependencies": {
-          "PuppeteerSharp": "[9.0.1, )"
+          "PuppeteerSharp": "[9.0.1, )",
+          "System.Net.WebSockets.Client.Managed": "[1.0.22, )"
         }
       }
     },
@@ -252,6 +262,20 @@
         "resolved": "4.5.1",
         "contentHash": "sDJYJpGtTgx+23Ayu5euxG5mAXWdkDb4+b0rD0Cab0M1oQS9H0HXGPriKcqpXuiJDTV7fTp/d+fMDJmnr6sNvA=="
       },
+      "System.Net.WebSockets.Client.Managed": {
+        "type": "Transitive",
+        "resolved": "1.0.22",
+        "contentHash": "WqEOxPlXjuZrIjUtXNE9NxEfU/n5E35iV2PtoZdJSUC4tlrqwHnTee+wvMIM4OUaJWmwrymeqcgYrE0IkGAgLA==",
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Numerics.Vectors": "4.4.0"
+        }
+      },
+      "System.Numerics.Vectors": {
+        "type": "Transitive",
+        "resolved": "4.4.0",
+        "contentHash": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ=="
+      },
       "System.Runtime.CompilerServices.Unsafe": {
         "type": "Transitive",
         "resolved": "6.0.0",
@@ -268,7 +292,8 @@
       "rr.core": {
         "type": "Project",
         "dependencies": {
-          "PuppeteerSharp": "[9.0.1, )"
+          "PuppeteerSharp": "[9.0.1, )",
+          "System.Net.WebSockets.Client.Managed": "[1.0.22, )"
         }
       }
     },
