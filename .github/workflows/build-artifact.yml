@@ -26,8 +26,8 @@ jobs:
     runs-on: windows-latest
     env:
       DOTNET_NOLOGO: true
-      Framework: ${{ matrix.framework }}
-      Profile: ${{ matrix.profile }}
+      FRAMEWORK: ${{ matrix.framework }}
+      PROFILE: ${{ matrix.profile }}
     outputs:
       version: ${{steps.version.outputs.version}}
     steps:
@@ -41,6 +41,10 @@ jobs:
         with:
           dotnet-version: 6.x
 
+      - name: Set VERSION
+        id: version
+        run: .\.github\scripts\version.ps1
+
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -49,17 +53,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - name: Set VERSION
-        id: version
-        run: .\.github\scripts\version.ps1
-
       - name: Build solution
         run: |
           dotnet restore --locked-mode
           dotnet build -c Release
 
       - name: Build artifact
-        run: dotnet publish -c Release -p:PublishProfile=$env:Profile -f $env:Framework /property:Version=$env:VERSION
+        run: dotnet publish -c Release -p:PublishProfile=$env:PROFILE -f $env:FRAMEWORK /property:Version=$env:VERSION
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
