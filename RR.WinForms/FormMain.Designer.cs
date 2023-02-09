@@ -53,6 +53,7 @@
             this.SL_Count = new System.Windows.Forms.ToolStripLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.SL_Status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.CB_SSL = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -88,11 +89,11 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 362);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 337);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(584, 78);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(584, 103);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -104,7 +105,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.B_Convert, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.B_OpenOut, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(467, 9);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(467, 34);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -132,7 +133,7 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(277, 72);
+            this.groupBox1.Size = new System.Drawing.Size(283, 97);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Настройки";
@@ -148,13 +149,16 @@
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.CB_SSL, 1, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 19);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(271, 50);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(277, 75);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // FLP_Orientation
@@ -262,7 +266,7 @@
             this.LV_Files.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LV_Files.Location = new System.Drawing.Point(0, 49);
             this.LV_Files.Name = "LV_Files";
-            this.LV_Files.Size = new System.Drawing.Size(584, 313);
+            this.LV_Files.Size = new System.Drawing.Size(584, 288);
             this.LV_Files.TabIndex = 3;
             this.LV_Files.UseCompatibleStateImageBehavior = false;
             this.LV_Files.View = System.Windows.Forms.View.Details;
@@ -348,6 +352,17 @@
             this.SL_Status.Size = new System.Drawing.Size(12, 17);
             this.SL_Status.Text = "-";
             // 
+            // CB_SSL
+            // 
+            this.CB_SSL.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.CB_SSL.AutoSize = true;
+            this.CB_SSL.Location = new System.Drawing.Point(100, 53);
+            this.CB_SSL.Name = "CB_SSL";
+            this.CB_SSL.Size = new System.Drawing.Size(174, 19);
+            this.CB_SSL.TabIndex = 3;
+            this.CB_SSL.Text = "Игнорировать ошибки SSL";
+            this.CB_SSL.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -411,5 +426,6 @@
         private TableLayoutPanel tableLayoutPanel3;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel SL_Status;
+        private CheckBox CB_SSL;
     }
 }

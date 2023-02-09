@@ -1,7 +1,10 @@
 ﻿using Microsoft.Win32;
 using PuppeteerSharp;
 using PuppeteerSharp.Media;
+using System.Net.Security;
+using System.Net;
 using System.Net.WebSockets;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using System.Xml.Xsl;
 
@@ -9,6 +12,7 @@ namespace RR.Core
 {
     public class XMLConverter : IDisposable
     {
+        private const string ChromeKey = @"HKEY_CLASSES_ROOT\ChromeHTML\shell\open\command";
         private readonly PdfOptions PDFConfig = new() { Format = PaperFormat.A4 };
         private readonly XsltSettings Settings = new(true, true);
         private readonly XslCompiledTransform Transform = new();
@@ -16,7 +20,22 @@ namespace RR.Core
         private IBrowser Browser;
 
         public XMLConverter()
-        { }
+        {
+            EnableSSL();
+        }
+
+        public static bool ChromeInstalled => Registry.GetValue(ChromeKey, null, null) is string;
+
+        public static void DisableSSL()
+        {
+            ServicePointManager.ServerCertificateValidationCallback = null;
+            ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback(SkipCertificate);
+        }
+
+        public static void EnableSSL()
+        {
+            ServicePointManager.ServerCertificateValidationCallback = null;
+        }
 
         public async Task PrepareBrowser()
         {
@@ -40,7 +59,7 @@ namespace RR.Core
                     return client;
                 }
             };
-            if (Registry.GetValue(@"HKEY_CLASSES_ROOT\ChromeHTML\shell\open\command", null, null) is string command)
+            if (Registry.GetValue(ChromeKey, null, null) is string command)
             {
                 var Command = command.Split('\"');
                 Options.ExecutablePath = Command.Length >= 2 ? Command[1] : null;
@@ -75,6 +94,8 @@ namespace RR.Core
             await Page.PdfAsync(outputPDF, PDFConfig);
             await Page.CloseAsync();
         }
+
+        private static bool SkipCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors policyErrors) => true;
 
         private string TransformToHTML(string inputXML)
         {

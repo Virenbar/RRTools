@@ -40,8 +40,17 @@ namespace RR.WinForms
             var Orientation = RB_Album.Checked ? PDFOrientation.Album : PDFOrientation.Book;
             var Count = 1;
             using var Converter = new XMLConverter();
+            if (CB_SSL.Enabled)
+            {
+                XMLConverter.DisableSSL();
+            }
             if (IsPDF)
             {
+                var M = "На компъютере не обнаружен Google Chrome. Будет скачана портативная версия Chromium.(~200 МБ)\nПродолжить?";
+                if (!XMLConverter.ChromeInstalled && MessageBox.Show(M, "Скачать Chromium", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return;
+                }
                 SL_Status.Text = "Подготовка браузера";
                 await Converter.PrepareBrowser();
             }
@@ -59,7 +68,10 @@ namespace RR.WinForms
                          : Task.Run(() => Converter.SaveAsHTML(File.FullName, OutFile.FullName));
                     await ConvertTask;
                 }
-                catch (Exception) { }
+                catch (Exception)
+                {
+                    SL_Status.Text = "Ошибка конвертации";
+                }
             }
             SL_Status.Text = "Конвертация завершина";
         }
