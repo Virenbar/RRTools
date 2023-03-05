@@ -40,10 +40,10 @@ namespace RR.WinForms
             var Orientation = RB_Album.Checked ? PDFOrientation.Album : PDFOrientation.Book;
             var Count = 1;
             using var Converter = new XMLConverter();
-            if (CB_SSL.Enabled)
-            {
-                XMLConverter.DisableSSL();
-            }
+            //if (CB_SSL.Enabled)
+            //{
+            //    XMLConverter.DisableSSL();
+            //}
             if (IsPDF)
             {
                 var M = "На компъютере не обнаружен Google Chrome. Будет скачана портативная версия Chromium.(~200 МБ)\nПродолжить?";
