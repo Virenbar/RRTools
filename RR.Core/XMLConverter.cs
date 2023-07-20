@@ -7,6 +7,7 @@ using System.Net.WebSockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using System.Xml.Xsl;
+using Microsoft.Web.WebView2.Core;
 
 namespace RR.Core
 {
@@ -93,6 +94,9 @@ namespace RR.Core
             await Page.SetContentAsync(HTML);
             await Page.PdfAsync(outputPDF, PDFConfig);
             await Page.CloseAsync();
+
+            CoreWebView2 WV = new CoreWebView2();
+            WV.NavigateToString(HTML);
         }
 
         private static bool SkipCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors policyErrors) => true;
