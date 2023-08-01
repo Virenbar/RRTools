@@ -26,12 +26,14 @@ namespace RR.Core
 
         public static bool ChromeInstalled => Registry.GetValue(ChromeKey, null, null) is string;
 
+        [Obsolete("Не работает")]
         public static void DisableSSL()
         {
             ServicePointManager.ServerCertificateValidationCallback = null;
             ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback(SkipCertificate);
         }
 
+        [Obsolete("Не работает")]
         public static void EnableSSL()
         {
             ServicePointManager.ServerCertificateValidationCallback = null;
