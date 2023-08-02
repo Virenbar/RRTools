@@ -1,8 +1,8 @@
 ﻿using Microsoft.Win32;
 using PuppeteerSharp;
 using PuppeteerSharp.Media;
-using System.Net.Security;
 using System.Net;
+using System.Net.Security;
 using System.Net.WebSockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
@@ -18,11 +18,6 @@ namespace RR.Core
         private readonly XslCompiledTransform Transform = new();
         private readonly XmlReaderSettings XMLR = new() { DtdProcessing = DtdProcessing.Parse };
         private IBrowser Browser;
-
-        public XMLConverter()
-        {
-            EnableSSL();
-        }
 
         public static bool ChromeInstalled => Registry.GetValue(ChromeKey, null, null) is string;
 
@@ -97,6 +92,7 @@ namespace RR.Core
             await Page.CloseAsync();
         }
 
+        [Obsolete]
         private static bool SkipCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors policyErrors) => true;
 
         private string TransformToHTML(string inputXML)
@@ -104,7 +100,7 @@ namespace RR.Core
             XmlDocument XML = new();
             XML.Load(inputXML);
             var PI = XML.SelectSingleNode("processing-instruction('xml-stylesheet')");
-            if (PI is null) { throw new Exception("Не указана ссылка на шаблон"); }
+            if (PI is null) { throw new XmlException("Не указана ссылка на шаблон"); }
             var URI = Regex.Match(PI.Value!, @"href=""(.+)""").Groups[1].Value;
 
             using var reader = XmlReader.Create(URI, XMLR);

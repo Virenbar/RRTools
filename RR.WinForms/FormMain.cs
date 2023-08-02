@@ -1,14 +1,17 @@
+using GDPIControl;
 using RR.Core;
 using RR.WinForms.Models;
 using RR.WinForms.Properties;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using System.Xml;
 
 namespace RR.WinForms
 {
     public partial class FormMain : Form
     {
         private readonly DirectoryInfo Output = new("Output");
+        private readonly CertificateStore Store = CertificateStore.UserStore();
         private readonly Dictionary<string, FileInfo> XMLFiles = new();
 
         public FormMain()
@@ -40,13 +43,9 @@ namespace RR.WinForms
             var Orientation = RB_Album.Checked ? PDFOrientation.Album : PDFOrientation.Book;
             var Count = 1;
             using var Converter = new XMLConverter();
-            if (CB_SSL.Enabled)
-            {
-                XMLConverter.DisableSSL();
-            }
             if (IsPDF)
             {
-                var M = "На компъютере не обнаружен Google Chrome. Будет скачана портативная версия Chromium.(~200 МБ)\nПродолжить?";
+                var M = "На компьютере не обнаружен Google Chrome. Будет скачана портативная версия Chromium.(~200 МБ)\nПродолжить?";
                 if (!XMLConverter.ChromeInstalled && MessageBox.Show(M, "Скачать Chromium", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
                     return;
@@ -54,11 +53,13 @@ namespace RR.WinForms
                 SL_Status.Text = "Подготовка браузера";
                 await Converter.PrepareBrowser();
             }
-            foreach (var File in XMLFiles.Values)
+
+            foreach (FileListViewItem item in LV_Files.Items)
             {
                 SL_Status.Text = $"Конвертация файлов: {Count++}";
                 try
                 {
+                    var File = item.File;
                     var OutPath = Path.Combine(Output.FullName, File.Name);
                     Directory.CreateDirectory(Output.FullName);
                     OutPath = OutPath.Replace(File.Extension, IsPDF ? ".pdf" : ".html");
@@ -67,23 +68,38 @@ namespace RR.WinForms
                          ? Converter.SaveAsPDF(File.FullName, OutFile.FullName, Orientation)
                          : Task.Run(() => Converter.SaveAsHTML(File.FullName, OutFile.FullName));
                     await ConvertTask;
+
+                    item.BackColor = Color.LightGreen;
+                    item.Result = "Файл конвертирован";
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    SL_Status.Text = "Ошибка конвертации";
+                    item.BackColor = Color.MistyRose;
+                    item.Result = $"Ошибка: {e.Message}";
                 }
             }
-            SL_Status.Text = "Конвертация завершина";
+            SL_Status.Text = "Конвертация завершена";
         }
 
         private void RefreshList()
         {
+            var style = XMLFiles.Count > 0
+                ? ColumnHeaderAutoResizeStyle.ColumnContent
+                : ColumnHeaderAutoResizeStyle.HeaderSize;
+
             LV_Files.BeginUpdate();
             LV_Files.Items.Clear();
             LV_Files.Items.AddRange(XMLFiles.Select((KV) => new FileListViewItem(KV.Value)).ToArray());
-            LV_Files.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            LV_Files.AutoResizeColumn(0, style);
             LV_Files.EndUpdate();
             SL_Count.Text = Regex.Replace(SL_Count.Text, @"\d+", $"{XMLFiles.Count}");
+        }
+
+        private void RefreshUI()
+        {
+            var installed = Store.Installed();
+            MI_InstallCertificate.Enabled = !installed;
+            MI_RemoveCertificate.Enabled = installed;
         }
 
         private void UIState(bool state)
@@ -118,6 +134,12 @@ namespace RR.WinForms
             Process.Start("explorer.exe", Output.FullName);
         }
 
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            RefreshUI();
+            RefreshList();
+        }
+
         private void LV_Files_DragDrop(object sender, DragEventArgs e)
         {
             if (e.Data is null) { return; }
@@ -145,7 +167,20 @@ namespace RR.WinForms
 
         private void MI_About_Click(object sender, EventArgs e)
         {
-            Process.Start(new ProcessStartInfo("https://github.com/Virenbar/RRTools") { UseShellExecute = true });
+            var F = new FormAbout();
+            F.ShowDialog(this);
+        }
+
+        private void MI_InstallCertificate_Click(object sender, EventArgs e)
+        {
+            Store.InstallCertificate();
+            RefreshUI();
+        }
+
+        private void MI_RemoveCertificate_Click(object sender, EventArgs e)
+        {
+            Store.RemoveCertificate();
+            RefreshUI();
         }
 
         private void RB_PDF_CheckedChanged(object sender, EventArgs e) => FLP_Orientation.Enabled = RB_PDF.Checked;
@@ -154,6 +189,7 @@ namespace RR.WinForms
         {
             using var F = new OpenFileDialog()
             {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 Filter = "XML файлы (*.xml)|*.xml",
                 Multiselect = true
             };
