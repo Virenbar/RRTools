@@ -61,7 +61,7 @@ namespace RR.WinForms
                 {
                     var OutPath = Path.Combine(Output.FullName, File.Name);
                     Directory.CreateDirectory(Output.FullName);
-                    OutPath = OutPath.Replace(File.Extension, IsPDF ? ".pdf" : ".xml");
+                    OutPath = OutPath.Replace(File.Extension, IsPDF ? ".pdf" : ".html");
                     var OutFile = new FileInfo(OutPath);
                     var ConvertTask = IsPDF
                          ? Converter.SaveAsPDF(File.FullName, OutFile.FullName, Orientation)
