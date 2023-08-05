@@ -187,7 +187,7 @@ namespace RR.WinForms
 
         private void SB_Add_Click(object sender, EventArgs e)
         {
-            using var F = new OpenFileDialog()
+            using var F = new OpenFileDialog
             {
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 Filter = "XML файлы (*.xml)|*.xml",

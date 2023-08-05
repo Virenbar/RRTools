@@ -39,7 +39,7 @@ namespace RR.Core
             var Options = new LaunchOptions
             {
                 Headless = true,
-                WebSocketFactory = async (uri, socketOptions, cancellationToken) =>
+                WebSocketFactory = async (uri, _, cancellationToken) =>
                 {
                     var client = SystemClientWebSocket.CreateClientWebSocket();
                     if (client is System.Net.WebSockets.Managed.ClientWebSocket managed)
@@ -93,7 +93,7 @@ namespace RR.Core
         }
 
         [Obsolete]
-        private static bool SkipCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors policyErrors) => true;
+        private static bool SkipCertificate(object _, X509Certificate certificate, X509Chain chain, SslPolicyErrors policyErrors) => true;
 
         private string TransformToHTML(string inputXML)
         {

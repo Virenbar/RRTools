@@ -7,6 +7,7 @@
 		<LangVersion>10</LangVersion>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/Virenbar/RRTools</RepositoryUrl>
+		<IsPublishable>False</IsPublishable>
 	</PropertyGroup>
 
 	<ItemGroup>
