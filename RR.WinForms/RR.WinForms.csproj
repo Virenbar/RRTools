@@ -22,14 +22,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\RR.Core\RR.Core.csproj" />
 		<PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\RR.Core\RR.Core.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
+		<Compile Update="icons8.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>icons8.resx</DependentUpon>
+		</Compile>
 		<Compile Update="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
@@ -43,6 +45,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<EmbeddedResource Update="icons8.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>icons8.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 		<EmbeddedResource Update="Properties\Resources.resx">
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>Resources.Designer.cs</LastGenOutput>

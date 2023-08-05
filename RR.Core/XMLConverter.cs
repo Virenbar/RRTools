@@ -1,8 +1,8 @@
 ﻿using Microsoft.Win32;
 using PuppeteerSharp;
 using PuppeteerSharp.Media;
-using System.Net.Security;
 using System.Net;
+using System.Net.Security;
 using System.Net.WebSockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
@@ -19,19 +19,16 @@ namespace RR.Core
         private readonly XmlReaderSettings XMLR = new() { DtdProcessing = DtdProcessing.Parse };
         private IBrowser Browser;
 
-        public XMLConverter()
-        {
-            EnableSSL();
-        }
-
         public static bool ChromeInstalled => Registry.GetValue(ChromeKey, null, null) is string;
 
+        [Obsolete("Не работает")]
         public static void DisableSSL()
         {
             ServicePointManager.ServerCertificateValidationCallback = null;
             ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback(SkipCertificate);
         }
 
+        [Obsolete("Не работает")]
         public static void EnableSSL()
         {
             ServicePointManager.ServerCertificateValidationCallback = null;
@@ -42,7 +39,7 @@ namespace RR.Core
             var Options = new LaunchOptions
             {
                 Headless = true,
-                WebSocketFactory = async (uri, socketOptions, cancellationToken) =>
+                WebSocketFactory = async (uri, _, cancellationToken) =>
                 {
                     var client = SystemClientWebSocket.CreateClientWebSocket();
                     if (client is System.Net.WebSockets.Managed.ClientWebSocket managed)
@@ -95,14 +92,15 @@ namespace RR.Core
             await Page.CloseAsync();
         }
 
-        private static bool SkipCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors policyErrors) => true;
+        [Obsolete]
+        private static bool SkipCertificate(object _, X509Certificate certificate, X509Chain chain, SslPolicyErrors policyErrors) => true;
 
         private string TransformToHTML(string inputXML)
         {
             XmlDocument XML = new();
             XML.Load(inputXML);
             var PI = XML.SelectSingleNode("processing-instruction('xml-stylesheet')");
-            if (PI is null) { throw new Exception("Не указана ссылка на шаблон"); }
+            if (PI is null) { throw new XmlException("Не указана ссылка на шаблон"); }
             var URI = Regex.Match(PI.Value!, @"href=""(.+)""").Groups[1].Value;
 
             using var reader = XmlReader.Create(URI, XMLR);
