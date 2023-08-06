@@ -19,8 +19,8 @@
 * Для создания PDF используется Google Chrome, при его отсутствии будет скачана локальная версия Chromium(~200 МБ)
 
 <!-- Badges -->
-[build-src]: https://img.shields.io/github/actions/workflow/status/Virenbar/JANL/build-artifact.yml?label=Build&logo=github
-[build-href]: https://github.com/Virenbar/JANL/actions/workflows/build-artifact.yml
+[build-src]: https://img.shields.io/github/actions/workflow/status/Virenbar/RRTools/build-artifact.yml?label=Build&logo=github
+[build-href]: https://github.com/Virenbar/RRTools/actions/workflows/build-artifact.yml
 
 [codacy-src]: https://app.codacy.com/project/badge/Grade/f375e8fc73914161a6acee13622fc535
 [codacy-href]: https://app.codacy.com/gh/Virenbar/RRTools/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
